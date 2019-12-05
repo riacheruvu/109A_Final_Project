@@ -2,27 +2,17 @@ url: https://riacheruvu.github.io
 baseurl: /109A_Final_Project/
 
 # Site settings
-title: Good title Here
-email: your-email@domain.com
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
+title: spotiFire - 109A
+email: riacheruvu@g.harvard.edu
+description: "This is our CS109A Final Project"
 
 
 # Team names, titles and social links
 people:
-- name: Kay Garland
-  pic: 1
-  position: Lead Designer
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: stack-overflow
-      url: #
 
-- name: Larry Parker
-  pic: 2
-  position: Lead Marketer
+- name: Guido Camps
+  pic: 1
+  position: Position Here
   social:
     - title: twitter
       url: #
@@ -31,9 +21,9 @@ people:
     - title: linkedin
       url: #
 
-- name: Diana Petersen
-  pic: 3
-  position: Lead Developer
+- name: Sunil Chomal
+  pic: 2
+  position: Position Here
   social:
     - title: twitter
       url: #
@@ -42,23 +32,25 @@ people:
     - title: google-plus
       url: #
 
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-  - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket 
-    url: http://bitbucket.org/jekyll
-  - title: github
-    url: http://github.com/jekyll
+- name: Ria Cheruvu
+  pic: 3
+  position: Master's Student in Data Science
+  social:
+    - title: github
+      url: https://github.com/riacheruvu
 
-# Postal address (add as many lines as necessary)
-address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
+# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
+#social:
+#  - title: twitter
+#    url: http://twitter.com/jekyllrb
+#  - title: facebook
+#    url:
+#  - title: stack-overflow
+#    url: http://stackoverflow.com/questions/tagged/jekyll
+#  - title: bitbucket 
+#    url: http://bitbucket.org/jekyll
+#  - title: github
+#    url: http://github.com/jekyll
 
 # Build settings
 markdown: kramdown
