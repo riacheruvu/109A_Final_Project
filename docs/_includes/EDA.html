@@ -42,11 +42,11 @@
             <p class="text-muted">Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately 3000 rows from songs999.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.</p>
 
             <b>Visualizations of data:</b><p>Number of unique artists in the list: 1330</p>
-            <center><img src="img/viz_1.jpg" alt="Number of unique artists in the list"></center>
+            <center><img src="img/viz_1.JPG" alt="Number of unique artists in the list"></center>
             
             <p><b>a.</b> Top ten artist entries in the datafile. <b>b.</b> Frequency distribution: there is a large skew to the data set, with a small number of artists having a large presence, and to the overly large majority being ‘one-trick-ponies’, having only a single hit song in the database.</p>
 
-            <center><img src="img/viz_2.jpg" alt="Heatmaps, boxplots, and correlation plots"></center>
+            <center><img src="img/viz_2.JPG" alt="Heatmaps, boxplots, and correlation plots"></center>
 
             <p><b>c.</b> A boxplot overview of the data of the songs for 8 features (accousticness, energy, liveness, loudness, tempo, valence, danceability, and speechiness), on the basis of which we will try to categorize songs and predict choice. There appears to be some skewing in data for liveness, loudness and speechiness. Liveness might be a multimodal distribution of liveness of regular songs, and a secondary group of actual songs for live performances. For speechiness this might be an effect of music type (e.g. rock/balads versus rap songs). Further analysis is required to better describe the data. <b>d.</b> A correlation matrix for the features to see if we have any issues with overlapping features or risk multicollinearity in further analysis. <b>e.</b> Overall there seems to be a negative correlation for accousticness and energy (e.g. acoustic songs are more often low-energy), a positive relationship between loudness and energy (more energetic songs are louder). Valance and danceability are positively correlated, as are energy and valance.</p>
 
@@ -57,15 +57,15 @@
 
             <p><b>f.</b> We tried clustering the data using K-means with 3 clusters - below, we demonstrate the distribution of the data points across the 3 clusters - we see majority of the data points have been assigned to Cluster 0. <b>g.</b> Additionally, we wanted to analyze the distribution of values with respect to the K-means clusters. Below, we demonstrate the results for a few features. We can see that Cluster 0 contains data points with low acousticness, high energy, high valence, and high danceability. Cluster 1 seems to contain data points that have low acousticness, high energy, and low valence. Cluster 2 contains data points with high acousticness, low energy, and low valence.</p>
 
-            <center><img src="img/viz_3.jpg" alt="K-means clustering results"></center>
+            <center><img src="img/viz_3.JPG" alt="K-means clustering results"></center>
 
             <p>Sample songs belonging to each cluster matching our observations:</p>
 
-            <center><img src="img/viz_4.jpg" alt="Tracks belonging to K-means clusters"></center>
+            <center><img src="img/viz_4.JPG" alt="Tracks belonging to K-means clusters"></center>
 
             <p><b>PCA:</b> We scaled the numerical features in the dataset using the StandardScaler() sklearn function, and then applied sklearn’s PCA transformer on the dataset. <b>i.</b> Below is a biplot of the first two principal components. The color corresponds to binned acousticness and energy variables to analyze the distribution of the values - the bins were made using the median of the variables.</p>
 
-            <center><img src="img/viz_5.jpg" alt="PCA results"></center>
+            <center><img src="img/viz_5.JPG" alt="PCA results"></center>
 
             <p>We plotted the cumulative explained variability (not shown here), and think all principal components are beneficial for explaining the most variability in the data. <b>k.</b> We tried deploying the K-means algorithm on the PCA-transformed data and obtained the results shown above. While it is hard to interpret the clusters on the PCA-transformed data in relation to the original data, we do observe a clear separation of the data into separate clusters. We plan to evaluate the performance of our models (e.g. models targeted at predicting the position of a track in a playlist) on the original and PCA-transformed data, to see if we can get optimal performance using PCA.</p>
 
