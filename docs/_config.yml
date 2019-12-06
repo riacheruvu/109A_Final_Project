@@ -12,14 +12,7 @@ people:
 
 - name: Guido Camps
   pic: 1
-  position: Position Here
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: linkedin
-      url: #
+  position: MSc in IMS
 
 - name: Sunil Chomal
   pic: 2
