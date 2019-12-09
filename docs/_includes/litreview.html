@@ -1,38 +1,26 @@
-<!-- About Section -->
+<!-- Services Section -->
     <section id="litreview">
+        <div class="container">
+            <div class="row">
+            <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Literature Review and Related Work</h2>
+            </div>
+            
+            <p>It has been suggested that providing more user control to help steer the recommendation process with additional input and feedback (Millecamp et al., 2018). Especially the participants with high musical sophistication want more active feedback and control, on the other hand for the vast majority automatic playlist continuation is important. For the continuation, successful metrics are required.</p>
 
-        <h2 class="section-heading">Literature Review and Related Work</h2>
-        <p>It has been suggested that providing more user control to help steer the recommendation process with additional input and feedback (Millecamp et al., 2018). Especially the participants with high musical sophistication want more active feedback and control, on the other hand for the vast majority automatic playlist continuation is important. For the continuation, successful metrics are required.</p>
+            <p> Zamani et al. presented an overview the most successful metrics and models for the ACM RecSys Challenge 2018 (Zamani et al., 2019). They found that for most models increasing the number of tracks increased performance. Surprisingly, the models perform worse when the title because models seem to overfit on the titles appearing in the training set. Randomizing track order in the training set may increase performance, because otherwise adjacent tracks are likely to share similar information. The most successful models ensemble the well-known methods (matrix factorization models, neighborhood-based collaborative filtering models, basic information retrieval techniques, and learning to rank models). Including external source information (i.e. outside of the Spotify API may make the models too complex, reducing performance.</p>
 
-        <p> Zamani et al. presented an overview the most successful metrics and models for the ACM RecSys Challenge 2018 (Zamani et al., 2019). They found that for most models increasing the number of tracks increased performance. Surprisingly, the models perform worse when the title because models seem to overfit on the titles appearing in the training set. Randomizing track order in the training set may increase performance, because otherwise adjacent tracks are likely to share similar information. The most successful models ensemble the well-known methods (matrix factorization models, neighborhood-based collaborative filtering models, basic information retrieval techniques, and learning to rank models). Including external source information (i.e. outside of the Spotify API may make the models too complex, reducing performance.</p>
-
-        <p>According to Lops et al. specific aspects of a recommendation system can only be implemented effectively with knowledge about the features of the items. For that we need knowledge sources that provide information about the items. These sources may include both structured ones like DBPedia, semi-structured ones like Wikipedia (Lops et al., 2019). Based on these insights, we strive to create a sentiment analysis model (based on additional sources and recommender system model (based on similarity to the initial tracks). Lastly, we want to include additional user control by enabling user inputs into the recommender system. In this way we are encompassing the main strategies from the literature in creating the most apt playlist continuation.</p>
-
-
-        <p>References: </p>
-
-        <p>Lops, P., Jannach, D., Musto, C. et al. User Model User-Adap Inter (2019) 29: 239. https://doi.org/10.1007/s11257-019-09231-w</p><br/>
-
-        <p>Millecamp, M., Htun, N., Jin, Y., & Verbert, K. (2018). Controlling Spotify Recommendations: Effects of Personal Characteristics on Music Recommender User Interfaces. <cite> Proceedings of the 26th Conference on User Modeling, Adaptation and Personalization </cite>, 101-109.</p><br/>
-
-        <p>Zamani, H., Schedl, M., Lamere, P., & Chen, C. (2018). An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation.<p>
-
-        <p>Technologies utilized as part of the project:</p>
-        <b>Data Formats</b>
-        <ul>
-            <li>Parquet</li>
-            <li>CSV\</li>
-            </ul>
-            <b>Packages Used</b>
-            <ul>
-            <li>sklearn for the recommender system</li>
-            <li>matplotlib</li>
-            <li>seaborn</li>
-            <li>spotipy</li>
-            <li>TODO!</li>
-        </ul>
-        <p>Below, we include a picture of our system's pipeline for inference: </p>
-        <img src="img/Pipeline_For_Inference.jpg" alt="Pipeline for Inference">
+            <p>According to Lops et al. specific aspects of a recommendation system can only be implemented effectively with knowledge about the features of the items. For that we need knowledge sources that provide information about the items. These sources may include both structured ones like DBPedia, semi-structured ones like Wikipedia (Lops et al., 2019). Based on these insights, we strive to create a sentiment analysis model (based on additional sources and recommender system model (based on similarity to the initial tracks). Lastly, we want to include additional user control by enabling user inputs into the recommender system. In this way we are encompassing the main strategies from the literature in creating the most apt playlist continuation.</p>
 
 
+            <p>References: </p>
+
+            <p>Lops, P., Jannach, D., Musto, C. et al. User Model User-Adap Inter (2019) 29: 239. https://doi.org/10.1007/s11257-019-09231-w</p><br/>
+
+            <p>Millecamp, M., Htun, N., Jin, Y., & Verbert, K. (2018). Controlling Spotify Recommendations: Effects of Personal Characteristics on Music Recommender User Interfaces. <cite> Proceedings of the 26th Conference on User Modeling, Adaptation and Personalization </cite>, 101-109.</p><br/>
+
+            <p>Zamani, H., Schedl, M., Lamere, P., & Chen, C. (2018). An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation.<p>
+
+            </div>
+            </div>
     </section>

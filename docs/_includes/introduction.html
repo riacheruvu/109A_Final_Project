@@ -7,13 +7,28 @@
                     <h3 class="section-subheading text-muted">Problem Statement. TODO: Engaging Context</h3>
 
                     <p> We chose to tackle the cold start problem for our project - generating a playlist of songs given a short amount of songs. Our idea was to expand more on the quality of the playlist, and answer the research question: How can we make music recommendation personalizable and automated? We will not deviate very far from this original question, however, initial exploratory analysis of the data has reshaped the way in which we will look at analysis. Our research question based on the use of additional audio features from Spotify and the EDA encompasses: Are we able to quantify music based on song features allowing for more personalized automated music recommendations?</p>
-
-                    <h3 class="section-subheading text-muted">Preliminary EDA</h3>
+                </div>
+                    <p>Technologies utilized as part of the project:</p>
+                    <b>Data Formats</b>
+                    <ul>
+                        <li>Parquet</li>
+                        <li>CSV\</li>
+                        </ul>
+                        <b>Packages Used</b>
+                        <ul>
+                        <li>sklearn for the recommender system</li>
+                        <li>matplotlib</li>
+                        <li>seaborn</li>
+                        <li>spotipy</li>
+                        <li>TODO!</li>
+                    </ul>
+                    <p>Below, we include a picture of our system's pipeline for inference: </p>
+                    <img src="img/Pipeline_For_Inference.jpg" alt="Pipeline for Inference">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Exploratory Data Analysis (EDA)</h2>
+                    <h2 class="section-heading">Preliminary Exploratory Data Analysis</h2>
                     <h3 class="section-subheading text-muted">As part of the EDA section, we cover four sections: Data description, data exploration, in addition to clustering and PCA.</h3>
                 </div>
-            </div>
+            
             <h4 class="subheading">Data Description</h4>
             <p class="text-muted">The Million Playlists dataset originally consisted of 9 columns - we added 8 more columns to the dataset corresponding to audio features of the tracks obtained using the Spotify API.</p>
 
