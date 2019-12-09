@@ -1,48 +1,85 @@
 <!-- Services Section -->
-    <section id="services">
+    <section id="introduction">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Introduction and Context</h2>
-                    <h3 class="section-subheading text-muted">TODO: Engaging context.</h3>
+                    <h3 class="section-subheading text-muted">Problem Statement. TODO: Engaging Context</h3>
 
                     <p> We chose to tackle the cold start problem for our project - generating a playlist of songs given a short amount of songs. Our idea was to expand more on the quality of the playlist, and answer the research question: How can we make music recommendation personalizable and automated? We will not deviate very far from this original question, however, initial exploratory analysis of the data has reshaped the way in which we will look at analysis. Our research question based on the use of additional audio features from Spotify and the EDA encompasses: Are we able to quantify music based on song features allowing for more personalized automated music recommendations?</p>
 
-                    <h2 class="section-heading">Literature Review and Related Work</h2>
-                    <p>It has been suggested that providing more user control to help steer the recommendation process with additional input and feedback (Millecamp et al., 2018). Especially the participants with high musical sophistication want more active feedback and control, on the other hand for the vast majority automatic playlist continuation is important. For the continuation, successful metrics are required.</p>
+                    <h3 class="section-subheading text-muted">Preliminary EDA</h3>
 
-                    <p> Zamani et al. presented an overview the most successful metrics and models for the ACM RecSys Challenge 2018 (Zamani et al., 2019). They found that for most models increasing the number of tracks increased performance. Surprisingly, the models perform worse when the title because models seem to overfit on the titles appearing in the training set. Randomizing track order in the training set may increase performance, because otherwise adjacent tracks are likely to share similar information. The most successful models ensemble the well-known methods (matrix factorization models, neighborhood-based collaborative filtering models, basic information retrieval techniques, and learning to rank models). Including external source information (i.e. outside of the Spotify API may make the models too complex, reducing performance.</p>
+    <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">Exploratory Data Analysis (EDA)</h2>
+                    <h3 class="section-subheading text-muted">As part of the EDA section, we cover four sections: Data description, data exploration, in addition to clustering and PCA.</h3>
+                </div>
+            </div>
+            <div class="row">
+            <h4 class="subheading">Data Description</h4>
+            <p class="text-muted">The Million Playlists dataset originally consisted of 9 columns - we added 8 more columns to the dataset corresponding to audio features of the tracks obtained using the Spotify API.</p>
 
-                    <p>According to Lops et al. specific aspects of a recommendation system can only be implemented effectively with knowledge about the features of the items. For that we need knowledge sources that provide information about the items. These sources may include both structured ones like DBPedia, semi-structured ones like Wikipedia (Lops et al., 2019). Based on these insights, we strive to create a sentiment analysis model (based on additional sources and recommender system model (based on similarity to the initial tracks). Lastly, we want to include additional user control by enabling user inputs into the recommender system. In this way we are encompassing the main strategies from the literature in creating the most apt playlist continuation.</p>
+            <ul>
+                <li>Pid: The playlist ID</li>
+                <li>Pos: The position of the song in the playlist</li>
+                <li>Artist_name: The name of the song artist</li>
+                <li>Track URI: The URI for the track.</li>
+                <li>Artist URI: The URI for the artist.</li>
+                <li>Track name: The name of the song/track</li>
+                <li>Album URI: The URI for the album</li>
+                <li>Duration_ms: The duration in milliseconds</li>
+                <li>Album_name: The name of the album</li>
+                <li>Acousticness: A confidence measure from 0.0 to 1.0 of whether the track is acoustic.</li>
+                <li>Energy: Energy is a measure from 0.0 to 1.0 and represents a perceptual measure of intensity and activity.</li>
+                <li>Liveness: Detects the presence of an audience in the recording.</li>
+                <li>Loudness: The overall loudness of a track in decibels (dB).</li>
+                <li>Tempo: The overall estimated tempo of a track in beats per minute (BPM).</li>
+                <li>Valence: A measure from 0.0 to 1.0 describing the musical positiveness conveyed by a track.</li>
+                <li>Danceability: Danceability describes how suitable a track is for dancing based on a combination of musical elements including tempo, rhythm stability, beat strength, and overall regularity.</li>
+                <li>Speechiness: Speechiness detects the presence of spoken words in a track.</li>
+                <li>Genre: Work in progress acquisition of genre labels - please see note in below description.</li>
+            </ul>
+            <p class="text-muted">Each dataset file consists of approximately 67,000 rows of data, and there are approximately 1000 csv files. We registered for and created a credential for our specific application/project.</p>
 
+            </div>
+            <div class="row">
+            <h4 class="subheading">Data Exploration</h4>
+            <p class="text-muted">Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately 3000 rows from songs999.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.</p>
 
-                    <p>References: </p>
+            <b>Visualizations of data:</b><p>Number of unique artists in the list: 1330</p>
+            <center><img src="img/viz_1.JPG" alt="Number of unique artists in the list"></center>
+            
+            <p><b>a.</b> Top ten artist entries in the datafile. <b>b.</b> Frequency distribution: there is a large skew to the data set, with a small number of artists having a large presence, and to the overly large majority being ‘one-trick-ponies’, having only a single hit song in the database.</p>
 
-                    <p>Lops, P., Jannach, D., Musto, C. et al. User Model User-Adap Inter (2019) 29: 239. https://doi.org/10.1007/s11257-019-09231-w</p><br/>
+            <center><img src="img/viz_2.JPG" alt="Heatmaps, boxplots, and correlation plots"></center>
 
-                    <p>Millecamp, M., Htun, N., Jin, Y., & Verbert, K. (2018). Controlling Spotify Recommendations: Effects of Personal Characteristics on Music Recommender User Interfaces. <cite> Proceedings of the 26th Conference on User Modeling, Adaptation and Personalization </cite>, 101-109.</p><br/>
+            <p><b>c.</b> A boxplot overview of the data of the songs for 8 features (accousticness, energy, liveness, loudness, tempo, valence, danceability, and speechiness), on the basis of which we will try to categorize songs and predict choice. There appears to be some skewing in data for liveness, loudness and speechiness. Liveness might be a multimodal distribution of liveness of regular songs, and a secondary group of actual songs for live performances. For speechiness this might be an effect of music type (e.g. rock/balads versus rap songs). Further analysis is required to better describe the data. <b>d.</b> A correlation matrix for the features to see if we have any issues with overlapping features or risk multicollinearity in further analysis. <b>e.</b> Overall there seems to be a negative correlation for accousticness and energy (e.g. acoustic songs are more often low-energy), a positive relationship between loudness and energy (more energetic songs are louder). Valance and danceability are positively correlated, as are energy and valance.</p>
 
-                    <p>Zamani, H., Schedl, M., Lamere, P., & Chen, C. (2018). An Analysis of Approaches Taken in the ACM RecSys Challenge 2018 for Automatic Music Playlist Continuation.<p>
+            </div>
+            <div class="row">
+            <h4 class="subheading">Clustering and PCA (TODO: Need to Update with Newest Results)</h4>
+            <p class="text-muted">Below, we present our results for k-means clustering</p>
 
-                    <p>Technologies utilized as part of the project:</p>
-                    <b>Data Formats</b>
-                    <ul>
-                        <li>Parquet</li>
-                        <li>CSV\</li>
-                        </ul>
-                        <b>Packages Used</b>
-                        <ul>
-                        <li>sklearn for the recommender system</li>
-                        <li>matplotlib</li>
-                        <li>seaborn</li>
-                        <li>spotipy</li>
-                        <li>TODO!</li>
-                    </ul>
-                    <p>Below, we include a picture of our system's pipeline for inference: </p>
-                    <img src="img/Pipeline_For_Inference.jpg" alt="Pipeline for Inference">
+            <p><b>f.</b> We tried clustering the data using K-means with 3 clusters - below, we demonstrate the distribution of the data points across the 3 clusters - we see majority of the data points have been assigned to Cluster 0. <b>g.</b> Additionally, we wanted to analyze the distribution of values with respect to the K-means clusters. Below, we demonstrate the results for a few features. We can see that Cluster 0 contains data points with low acousticness, high energy, high valence, and high danceability. Cluster 1 seems to contain data points that have low acousticness, high energy, and low valence. Cluster 2 contains data points with high acousticness, low energy, and low valence.</p>
 
+            <center><img src="img/viz_3.JPG" alt="K-means clustering results"></center>
 
+            <p>Sample songs belonging to each cluster matching our observations:</p>
+
+            <center><img src="img/viz_4.JPG" alt="Tracks belonging to K-means clusters"></center>
+
+            <p><b>PCA:</b> We scaled the numerical features in the dataset using the StandardScaler() sklearn function, and then applied sklearn’s PCA transformer on the dataset. <b>i.</b> Below is a biplot of the first two principal components. The color corresponds to binned acousticness and energy variables to analyze the distribution of the values - the bins were made using the median of the variables.</p>
+
+            <center><img src="img/viz_5.JPG" alt="PCA results"></center>
+
+            <p>We plotted the cumulative explained variability (not shown here), and think all principal components are beneficial for explaining the most variability in the data. <b>k.</b> We tried deploying the K-means algorithm on the PCA-transformed data and obtained the results shown above. While it is hard to interpret the clusters on the PCA-transformed data in relation to the original data, we do observe a clear separation of the data into separate clusters. We plan to evaluate the performance of our models (e.g. models targeted at predicting the position of a track in a playlist) on the original and PCA-transformed data, to see if we can get optimal performance using PCA.</p>
+
+            </div>
 
                 </div>
             </div>
+        </div>
+        </div>
     </section>
