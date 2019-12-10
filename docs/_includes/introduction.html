@@ -6,25 +6,38 @@
                     <h2 class="section-heading">Introduction and Context</h2>
                     <h3 class="section-subheading text-muted">Automatic Playlist Continuation (APC) is an interesting and modern challenge, for platforms providing the user with choices from a large pool of content. Whether it is movie clips, music or other digital content, APC needs to thread the needle between providing users with content from their own playlist, as well as providing fresh but fitting choices to expand their world. In the world of music, APC based on song features has long been introduced. However, adding both song sentiments as well as user’s sentiments to connect even better with the current mood of the user in selecting songs remains a challenge. </h3>
 
-                    <p> We chose to tackle the cold start problem for our project - generating a playlist of songs given a short amount of songs. Our idea was to expand more on the quality of the playlist, and answer the research question: How can we make music recommendation personalizable and automated? We will not deviate very far from this original question, however, initial exploratory analysis of the data has reshaped the way in which we will look at analysis. Our research question based on the use of additional audio features from Spotify and the EDA encompasses: Are we able to quantify music based on song features allowing for more personalized automated music recommendations?</p>
+                    <p> We chose to tackle the cold start problem for our project - generating a playlist of songs given a short amount of songs. Our idea was to expand more on the quality of the playlist, and answer the research question: How can we make music recommendation personalizable and automated? We will not deviate very far from this original question, however, initial exploratory analysis of the data has reshaped the way in which we will look at analysis. Our research question based on the use of additional audio features from Spotify and the EDA encompasses: Are we able to quantify music based on song features allowing for more personalized automated music recommendations?
+
+                    While our models are trained with all the features, for the purposes of this project, we chose to place emphasis on the danceability, energy, valence, and specchiness features for persoanlizing the recommendations, considering that users would choose to have variability in aspects such as tempo.</p>
+
+                    <p><b>TODO: Interactive Quiz. We wanted to focus on UI in addition to the models!!</b></p>
                 </div>
                     <p>Technologies utilized as part of the project:</p>
                     <b>Data Formats</b>
                     <ul>
                         <li>Parquet</li>
-                        <li>CSV\</li>
-                        </ul>
-                        <b>Packages Used</b>
-                        <ul>
-                        <li>sklearn for the recommender system</li>
+                        <li>CSV</li>
+                    </ul>
+                    <b>Packages Used</b>
+                    <ul>
+                        <li>sklearn (for the recommender system)</li>
                         <li>matplotlib</li>
                         <li>seaborn</li>
-                        <li>spotipy</li>
-                        <li>TODO!</li>
+                        <li>spotipy (for data acqusition)</li>
                     </ul>
+                    <b>Algorithms Utilized</b>
+                    <ul>
+                        <li>K-Nearest Neighbors</li>
+                        <li>K-Means</li>
+                        <li>PCA</li>
+                        <li>BERT</li>
+                        <li>GPT-2</li>
+                    </ul>
+
+                <div class="col-lg-12 text-center">
                     <p>Below, we include a picture of our system's pipeline for inference: </p>
                     <img src="img/Pipeline_For_Inference.jpg" alt="Pipeline for Inference">
-                <div class="col-lg-12 text-center">
+                    <br/>
                     <h2 class="section-heading">Preliminary Exploratory Data Analysis</h2>
                     <h3 class="section-subheading text-muted">As part of the EDA section, we cover four sections: Data description, data exploration, in addition to clustering and PCA.</h3>
                 </div>

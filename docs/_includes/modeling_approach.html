@@ -30,10 +30,25 @@
                 <div class="col-lg-12 text-center">
                     <h3 class="section-subheading text-muted">K-means Clustering.</h3>
                 </div>
-                <p>With this approach, we leverage the approached use for the EDA, and predict the clusters of input songs... TODO Elaborate!</p>
+                <p>As we will describe in detail in the next section, we observed that when using the baseline model  using a K-nearest neighbor model utilizing cosine similarity, we noticed that recommendations that were assigned a high cosine similarity were not necessarily similar in audio features in relation to the input playlist.
+
+                For the purposes of this project, we chose to extensively focus on the danceability, energy, valence, and specchiness features, considering that users would choose to have variability in aspects such as tempo.
+
+                For example, users whoose initial playlist consists of songs that are have high danceability and energy are more likely to want to listen to such songs - users are also more likely to be open to songs with varying values of the other features (e.g. songs can have varying tempo, but still all be energetic).
+
+                Therefore, with this approach, we leverage the K-means clustering approach used for the EDA to only output songs that belong to the same cluster(s) as the initial tracks. Combining the K-means and K-nearest neighbors algorithms, we came up with the following approach:
+
+                <ol>
+                <li>User gives us (say, 3) songs from their playlist.</li>
+                <li>The user needs to take a quiz to narrow the recommendations based on preferences. We figure out the cluster that the k-means algorithm assigned the user's songs to, and <b>adjust the default answers of the next few questions in the quiz to what we think the user's preferences are.</b> In the case that the inputted playliat has songs from multiple clusters, we choose whatever cluster the inputted tracks are assigned to most and move forward; if all the tracks belong to seperate clusters, we pick the first and move forward. TODO - confirming on this. </li>
+                <li>The user can choose to keep the default answers, or choose their own answers (which we give priority to).</li>  
+                <li>We use the KNN algorithm with cosine similarity to get the recommendations.</li>
+                <li>Then, if the user chose the default values, we extract the recommendations that belong to the same cluster that the user's songs were in. Or, if the user chose their own answers, we figure out which cluster best matches that description and then only get songs that are from that cluster.</li>
+                </ol>
+                </p>
 
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-subheading text-muted">Metrics - evaluating our models</h3>
+                    <h3 class="section-subheading text-muted">Metrics - evaluating our models - TODO!</h3>
                 </div>
             </div>
 
