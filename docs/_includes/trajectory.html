@@ -1,46 +1,10 @@
 <!-- Services Section -->
-    <section id="services">
+    <section id="trajectory">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Models</h2>
-                    <h3 class="section-subheading text-muted">Recommender System and Sentiment Analysis.</h3>
-                </div>
-            </div>
-            <div class="row text-center">
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">E-Commerce</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-laptop fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Responsive Design</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-                <div class="col-md-4">
-                    <span class="fa-stack fa-4x">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-lock fa-stack-1x fa-inverse"></i>
-                    </span>
-                    <h4 class="service-heading">Web Security</h4>
-                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section id="about">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">About (TODO: Do we need the timeline or can we discard it?)</h2>
-                    <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                    <h2 class="section-heading">Project Trajectory</h2>
+                    <h3 class="section-subheading text-muted">The journey of how our progress molded our implementation goals.</h3>
                 </div>
             </div>
             <div class="row">
@@ -52,11 +16,12 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>2009-2011</h4>
-                                    <h4 class="subheading">Data Description</h4>
+                                    <h4>Features</h4>
+                                    <h4 class="subheading">Design choices for the dataset</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">We initially tried to add genre as a feature included in our dataset, and retrieve these labels using Spotipy's API.
+                                    We found that Spotify's API makes the process of obtaining genre labels complicated, since we needed to use the artists' genre labels, since the genre labels for a particular track/song are almost always empty. We were able to retrieve the genre labels and classify certain sub-categories of genres under umbrella categories (e.g. Classical and Soundtrack). We ran into issues when we identified numerous sub-genres that could be grouped into multiple different categories - for example, should "Pop Rock" be grouped into the Pop or Rock genre? Furthermore, the song produced by an artists may not have the same genre as the genre most associated with the artist, so we discarded this feature and chose to rely on the audio features instead as our foundation.</p>
                                 </div>
                             </div>
                         </li>
@@ -66,11 +31,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>March 2011</h4>
-                                    <h4 class="subheading">Data Exploration</h4>
+                                    <h4>Refining our baseline model</h4>
+                                    <h4 class="subheading">Design choices for the models</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">As we were building upon our baseline model, using a K-nearest neighbor model utilizing cosine similarity, we noticed that recommendations that were assigned a high cosine similarity were not necessarily similar in audio features in relation to the input playlist. TODO: Elaborate further.</p>
                                 </div>
                             </div>
                         </li>
