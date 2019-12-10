@@ -10,10 +10,12 @@
 
                     While our models are trained with all the features, for the purposes of this project, we chose to place emphasis on the danceability, energy, valence, and specchiness features for persoanlizing the recommendations, considering that users would choose to have variability in aspects such as tempo.</p>
 
-                    <p><b>TODO: Interactive Quiz. We wanted to focus on UI in addition to the models!!</b></p>
+                    <p><b>From the research we performed for a literature review, we identified that user input is critical for generating rich and relevant recommendations. Therefore, as part of the scope of this project, we wanted to focus on the user interface of our system in addition to the models as a prototype of a real-world application.</b></p>
                 </div>
                     <p>Technologies utilized as part of the project:</p>
                     <b>Data Formats</b>
+                    <p>Size of data that was analyzed: TODO! Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately TODO rows from TODO.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.
+                    </p>
                     <ul>
                         <li>Parquet</li>
                         <li>CSV</li>
@@ -72,35 +74,38 @@
             </div>
             <div class="row">
             <h4 class="subheading">Data Exploration</h4>
-            <p class="text-muted">Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately 3000 rows from songs999.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.</p>
+            <p>We present the results we obtained after dropping NAN values from the dataframe.</p>
 
-            <b>Visualizations of data:</b><p>Number of unique artists in the list: 1330</p>
+            <p>For the numerical variables, we noticed that some of the variables have a different order of magnitude compared to the other features. For example, the "Tempo" variable has values ranging from 0 to 220, the "Loudness" variable had values ranging from -42 to approximately 2, and the "danceability" variable has values ranging from 0 to approximately 1. This suggests that scaling the dataset would be useful to account for the features with varying orders of magnitude - which we will consider later.</p>
+
+            <b>Visualizations of data:</b>
+
+
+            First, let's look at the number of unique artists in the list (there are 8,303). Below we see the top ten artist entries in the datafile. 
+
             <center><img src="img/viz_1.JPG" alt="Number of unique artists in the list"></center>
             
-            <p><b>a.</b> Top ten artist entries in the datafile. <b>b.</b> Frequency distribution: there is a large skew to the data set, with a small number of artists having a large presence, and to the overly large majority being ‘one-trick-ponies’, having only a single hit song in the database.</p>
+            <p><b>a.</b> Top ten artist entries in the datafile. <b>b.</b> We see the frequency distribution of the artists: there is a large skew to the data set, with a small number of artists having a large presence, and to the overly large majority being ‘one-trick-ponies’, having only a single hit song in the database. One hypothesis we can make from these insights is that users would be more open to listening to songs from other artists that aren't (yet) part of their playlist, rather than tracks from the same artists the users listen to, given that most artists have a small presence.</p>
+
+
+            <p>Now, let's dive deeper into the data. Let's look at a boxplot overview of the data of the songs for 8 features (accousticness, energy, liveness, loudness, tempo, valence, danceability, and speechiness), on the basis of which we will try to categorize songs and predict choice.</p>
 
             <center><img src="img/viz_2.JPG" alt="Heatmaps, boxplots, and correlation plots"></center>
 
-            <p><b>c.</b> A boxplot overview of the data of the songs for 8 features (accousticness, energy, liveness, loudness, tempo, valence, danceability, and speechiness), on the basis of which we will try to categorize songs and predict choice. There appears to be some skewing in data for liveness, loudness and speechiness. Liveness might be a multimodal distribution of liveness of regular songs, and a secondary group of actual songs for live performances. For speechiness this might be an effect of music type (e.g. rock/balads versus rap songs). Further analysis is required to better describe the data. <b>d.</b> A correlation matrix for the features to see if we have any issues with overlapping features or risk multicollinearity in further analysis. <b>e.</b> Overall there seems to be a negative correlation for accousticness and energy (e.g. acoustic songs are more often low-energy), a positive relationship between loudness and energy (more energetic songs are louder). Valance and danceability are positively correlated, as are energy and valance.</p>
+            <p><b>c.</b> There appears to be some skewing in data for liveness, loudness and speechiness. Liveness might be a multimodal distribution of liveness of regular songs, and a secondary group of actual songs for live performances. For speechiness this might be an effect of music type (e.g. rock/balads versus rap songs). TODO! <b>d.</b> Next, we inspect a correlation matrix for the features to see if we have any issues with overlapping features or risk multicollinearity in further analysis. We only see particularly high correlations between acousticness and energy and acousticness and loudnness, although in other cases the dataset doesn't demonstrate high multicollinearity. Let's look in this detail. <b>e.</b> We utilized the correlation plots for four features in particular. Overall there seems to be a negative correlation for accousticness and energy (e.g. acoustic songs are more often low-energy), a positive relationship between loudness and energy (more energetic songs are louder). Valance and danceability are positively correlated, as are energy and valence. Since we see interesting relationships between these variables that may be encoding musical sensabilities, we chose to keep all the features in the dataset and see how they inform our analysis. </p>
 
             </div>
             <div class="row">
-            <h4 class="subheading">Clustering and PCA (TODO: Need to Update with Newest Results)</h4>
-            <p class="text-muted">Below, we present our results for k-means clustering</p>
+            <h4 class="subheading">Unsupervised Learning: Clustering and PCA</h4>
+            <p class="text-muted">Below, we present our results for k-means clustering, after scaling the dataset using Standard Scaler and training and fitting the K-means model on the data</p>
 
-            <p><b>f.</b> We tried clustering the data using K-means with 3 clusters - below, we demonstrate the distribution of the data points across the 3 clusters - we see majority of the data points have been assigned to Cluster 0. <b>g.</b> Additionally, we wanted to analyze the distribution of values with respect to the K-means clusters. Below, we demonstrate the results for a few features. We can see that Cluster 0 contains data points with low acousticness, high energy, high valence, and high danceability. Cluster 1 seems to contain data points that have low acousticness, high energy, and low valence. Cluster 2 contains data points with high acousticness, low energy, and low valence.</p>
+            <p><b>f.</b> We clustered the data using K-means with 3 clusters - below, we demonstrate the distribution of the data points across the 3 clusters - we see majority of the data points have been assigned to Cluster 0. <b>g.</b> It is challenging to interpret the results of unsupervised learning algorithms, given there are no labels. We can use one approach where we analyze the distribution of values with respect to the K-means clusters. Therefore, we found analyzing the distribution of values with respect to the K-means clusters would be helpful. We see the distributions for the clusters seem to overlap a lot, but we can make out a few trends. For example, it seems that Cluster 0 contains data points with low acousticness, high energy, high valence, and high danceability. Cluster 1 seems to contain data points that have high acousticness, low energy, and low valence. Cluster 2 contains data points with low acousticness, high energy, and medium valence. For variables such as "speechiness", it is harder to identify the trends, although we can generally say that Cluster 0 contains data points with relatively higher speechiness, Cluster 1 contains data points with low speechiness, and Cluster 2 contains data points with medium speechiness.</p>
 
             <center><img src="img/viz_3.JPG" alt="K-means clustering results"></center>
 
-            <p>Sample songs belonging to each cluster matching our observations:</p>
+            <p>Sample songs belonging to each cluster matching our observations (TODO):</p>
 
             <center><img src="img/viz_4.JPG" alt="Tracks belonging to K-means clusters"></center>
-
-            <p><b>PCA:</b> We scaled the numerical features in the dataset using the StandardScaler() sklearn function, and then applied sklearn’s PCA transformer on the dataset. <b>i.</b> Below is a biplot of the first two principal components. The color corresponds to binned acousticness and energy variables to analyze the distribution of the values - the bins were made using the median of the variables.</p>
-
-            <center><img src="img/viz_5.JPG" alt="PCA results"></center>
-
-            <p>We plotted the cumulative explained variability (not shown here), and think all principal components are beneficial for explaining the most variability in the data. <b>k.</b> We tried deploying the K-means algorithm on the PCA-transformed data and obtained the results shown above. While it is hard to interpret the clusters on the PCA-transformed data in relation to the original data, we do observe a clear separation of the data into separate clusters. We plan to evaluate the performance of our models (e.g. models targeted at predicting the position of a track in a playlist) on the original and PCA-transformed data, to see if we can get optimal performance using PCA.</p>
 
             </div>
             </div>
