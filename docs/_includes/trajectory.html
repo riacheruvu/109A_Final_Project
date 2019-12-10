@@ -31,11 +31,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>Refining our baseline model</h4>
+                                    <h4>Refining our recommender system</h4>
                                     <h4 class="subheading">Design choices for the models</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">As mentioned in the previous section, in order to narrow down user- we were building upon our baseline model, using a K-nearest neighbor model utilizing cosine similarity, we noticed that recommendations that were assigned a high cosine similarity were not necessarily similar in audio features in relation to the input playlist. TODO: Elaborate further.</p>
+                                    <p class="text-muted">As mentioned in the previous section, in order to personalize and further narrow down the generated recommendations, we built upon our baseline model by utilizing the clustering approach to interpret the clusters the initial playlist were assigned to, and recommend songs accordingly. We previously experimented with a Logistic Regression and Linear regression model to predict the pos variable, or the position of the track in the playlist. Since the pos variable can be considered as both categorical and numerical, we tried using unregularized Logistic and Linear regression models, which led to sub-optimal accuracy. We chose not to pursue this approach so we could focus on the personalization of the recommendations and the overall system pipeline combining sentiment analysis + the recommender system. </p>
                                 </div>
                             </div>
                         </li>
@@ -45,11 +45,11 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>December 2012</h4>
-                                    <h4 class="subheading">Clustering and PCA</h4>
+                                    <h4>Sentiment Analysis</h4>
+                                    <h4 class="subheading">Design choices for the models</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">We first tried usign the BERT algorithm, and later used GPT-2 due to the differences in the training dataset. TODO - Elaborate.</p>
                                 </div>
                             </div>
                         </li>
@@ -59,19 +59,19 @@
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
-                                    <h4>July 2014</h4>
-                                    <h4 class="subheading">Recommender System and Sentiment Analysis</h4>
+                                    <h4>TODO - Metrics</h4>
+                                    <h4 class="subheading">Design choices for evaluating models</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                    <p class="text-muted">TODO - Elaborate</p>
                                 </div>
                             </div>
                         </li>
                         <li class="timeline-inverted">
                             <div class="timeline-image">
-                                <h4>Be Part
-                                    <br>Of Our
-                                    <br>Story!</h4>
+                                <h4>The
+                                    <br>finalized
+                                    <br>pipeline</h4>
                             </div>
                         </li>
                     </ul>
