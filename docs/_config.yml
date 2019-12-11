@@ -16,15 +16,8 @@ people:
 
 - name: Sunil Chomal
   pic: 2
-  position: (TODO) Position Here
-  social:
-    - title: twitter
-      url: #
-    - title: facebook
-      url: #
-    - title: google-plus
-      url: #
-
+  position: Master's Student in Data Science
+  
 - name: Ria Cheruvu
   pic: 3
   position: Master's Student in Data Science
