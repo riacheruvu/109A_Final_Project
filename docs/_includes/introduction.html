@@ -8,11 +8,12 @@
                 </div>
                     <p> For this project, we chose to tackle the cold start problem for our project and generate a playlist of songs given a short amount of songs. Our idea was to expand more on the quality of the playlist, and answer the research question: How can we make music recommendation personalizable and automated? Our initial exploratory analysis of the data reshaped the way in which we looked at analysis. We then refined our research question based on the use of additional audio features from Spotify and the EDA to encompass: Are we able to quantify music based on song features allowing for more personalized automated music recommendations?
 
-                    While our models are trained with all the features, for the purposes of this project, we chose to place emphasis on the danceability, energy, valence, and specchiness features for persoanlizing the recommendations, considering that users would choose to have variability in aspects such as tempo.</p>
+                    While our models are trained with all the features, for the purposes of this project, we chose to place emphasis on the danceability, energy, valence, and specchiness features for personalizing the recommendations, considering that users would choose to have variability in aspects such as tempo.</p>
 
                     <p>This problem is challenging due to the design choices that need to be carefully selected in building such a system. In certain cases, intution may disagree with the story the data is telling us - it's important to differentiate between cases where we should utilize <b>data-centered design</b> (e.g. output tracks with the highest cosine similarity and call it a day) or <b>human-centered design</b> (e.g. ignore cosine similarity and focus on aspects of the tracks humans are more likely to pay attention to, like how danceable the songs in their playlist are). The goal of this project is to focus on the latter</p>
 
                     <p><b>Extending on this, from the research we performed for a literature review, we identified that user input is critical for generating rich and relevant recommendations. Therefore, as part of the scope of this project, we wanted to focus on the user interface (UI) of our system in addition to the models as a prototype of a real-world application. As we will explore in later sections, we were able to incorporate intuitive features into our UI that enhances the user experience, such as dynamically reconfiguring the default answers of the quiz the user takes to match what the system initially hypothesize the user's preferences are. </b></p>
+
                     <p>Technologies utilized as part of the project:</p>
                     <b>Data Formats</b>
                     <ul>
@@ -137,6 +138,8 @@
 
             In this case, we have only cluster (Cluster 0) that represents happy tracks. We experimented with different numbers of clusters, and observed similar observations in terms of seperability of features even with more clusters, so we decided to choose three clusters and move forward.</p>
 
+
+            With the insights gathered from EDA, we started our implementation.
             </div>
             </div>
     </section>

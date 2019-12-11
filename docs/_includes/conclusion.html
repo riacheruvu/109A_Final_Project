@@ -6,15 +6,23 @@
                     <h2 class="section-heading">Conclusion</h2>
                 </div>
 
-            TODO: Summary of results.
 
-            <b>Strengths of project: </b> <p>We scoped and built a full end-to-end pipeline, consisting of a user interface and integrating a recommender system model that utilizes unsupervised learning to supplement its predictions and sentiment analysis to generate recommendations. In terms of the user interface, our idea to have the user take a short quiz on their preferred audio features, and have the clustering algorithm dynamically reconfigure the default answers of the quiz to match what we think the user's preferences are enhances the user experience. 
+            <b>Strengths of project: </b> <p>
 
-            We worked extensively on generating and comparing the results between our recommender system model in addition to the different sentiment analysis models we tried (BERT and GPT-2). </p>
+                We scoped and built a full end-to-end pipeline, consisting of a user interface for incorporating feedback from the user and integrating a recommender system model that utilizes unsupervised learning to supplement its predictions and sentiment analysis to generate recommendations. In terms of the user interface, our idea was to have the user take a short quiz on their preferred audio features, and have the clustering algorithm dynamically reconfigure the default answers of the quiz to match what we think the user's preferences are enhances the user experience. 
+
+            We worked extensively on generating and comparing the results between our recommender system model in addition to the different sentiment analysis models we tried (BERT and GPT-2).  We covered the impact of our model in the Intepretation section, and do not repeat it here to avoid redundancy.
+
+
+        </p>
 
             <b>Short-comings: </b> Future work would include expanding on the implementations we needed to discard during our project trajectory, such as more work on deciding the rankings of the songs. We would approach this by using a linear or logistic regression model trained on a PCA-transformed version of the dataset to predict the position of the track in the playlist. 
 
             Additionally, using recommender system models other than the type of model used in this project, such as collaborative filtering models, might lead to better performance on the validation and test data. We would approach this aspect by using the Spotipy API to retrieve ratings/likes about the songs as input to the collaborative filtering model.
+
+            Finally, expanding on the implementation of metrics such as R-precision and Normalized discounted cumulative gain (NDCG)
+ by addressing the questions we noted above (in the Project Trajectory section) given more time would helps us quantitatively compare the results between our models. As we noted above, this may not be representative of the real-world - for example, for the R-precision metric, defining "relevancy" of a track is vague (users might be more open to tracks that aren't necessarily part of the dataset we used). This is where we see the contention between data-centered design and human-centered design, and for this project, we strove to consider the latter.
+
             </div>
             </div>
     </section>
