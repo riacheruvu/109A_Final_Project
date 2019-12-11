@@ -49,7 +49,20 @@
                                     <h4 class="subheading">Design choices for the models</h4>
                                 </div>
                                 <div class="timeline-body">
-                                    <p class="text-muted">We first tried usign the BERT algorithm, and later used GPT-2 due to the differences in the training dataset. TODO - Elaborate.</p>
+                                    <p class="text-muted">We choose BERT & GPT as put together they cover Wikipedia & Reddit, two of the most popular user managed sources of data. We used their baseline models (bert-base-uncased & gpt2). </p>
+                                    <ul>
+                                        <li>Input</li>
+                                        <p>For input text, we put in a combination of artist, album & song. To prevent "false" similarity between albums with skipped words such as "Deluxe Edition Remastered' from album names. We used the 2 language models to generate 768 dimension word vectors.</p>
+                                        <li>Index</li>
+                                        <p>To efficiently generate recommendations, we need to check for the statistical distance between vectors of chosen song, and select ones from the dataset that is the closest. We create an index using the simplest version that just performs brute-force L2 distance search. For this we use FAISS (Facebook AI Similarity Search). We explored other options using as Spotify's ANNOY (Approximate Nearest Neighbours), but we finally found FAISS as the simplest and fastest for our requirement.</p>
+                                        <li>Search</li>
+                                        <p>We use the search index generated in the step above to search for possible recommendations. We use the following filter criteria:</p>
+                                        <ul>
+                                            <li>No songs from the original artist</li>
+                                            <li>No songs from the original album</li>
+                                            <li>Only 1 recommendation per new artist</li>
+                                        </ul>
+                                    </ul>
                                     <p>BERT image source: https://www.charactour.com/hub/characters/view/Bert.Sesame-Street</p>
                                 </div>
                             </div>
