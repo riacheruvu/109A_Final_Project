@@ -82,8 +82,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">Results and Demo (TODO)</h2>
+                    <h2 class="section-heading">Results and Demo</h2>
                 </div>
+        Let's walk through a scenario, where the user inputs one song (an extreme case of the cold start problem to demonstrate our system is able to adjust to such an input).
+
+        First, the user provides their preferences:
+        <img src="img/input_quiz.JPG" alt="input_quiz">
+
+        Then, we have the recommender system output recommendations:
+        <img src="img/recommender_system_df.JPG" alt="recommender_system_df">
+
+        The clustering algorithm narrows the recommandations; the results are below:
+        <img src="img/cluster+recommender_system_df.JPG" alt="cluster+recommender_system_df">
+
+        Below are the recommendations from BERT and GPT-2 for the inputted song:
+
+        <img src="img/BERT_recommendations_df.JPG" alt="BERT_recommendations_df">
+        <img src="img/GPT2_recommendations_df.JPG" alt="GPT2_recommendations_df">
+
+        TODO: BERT and GPT-2 models can only take as input one song!
+
+        Below, we present an example of combining the recommendations - we combine the recommendations of the clustering + recommender system + GPT-2 model recommendations to obtain the following.
+
+        We leave ranking these recommendations further (perhaps by ranking by the values of the features) as future work.
+
+        <img src="img/GPT2_recommendations_df.JPG" alt="combined_recommendations">
 
         </div>
         </div>

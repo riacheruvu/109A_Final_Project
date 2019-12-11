@@ -15,12 +15,24 @@
                     <p><b>Extending on this, from the research we performed for a literature review, we identified that user input is critical for generating rich and relevant recommendations. Therefore, as part of the scope of this project, we wanted to focus on the user interface (UI) of our system in addition to the models as a prototype of a real-world application. As we will explore in later sections, we were able to incorporate intuitive features into our UI that enhances the user experience, such as dynamically reconfiguring the default answers of the quiz the user takes to match what the system initially hypothesize the user's preferences are. </b></p>
                     <p>Technologies utilized as part of the project:</p>
                     <b>Data Formats</b>
-                    <p>Size of data that was analyzed: TODO! Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately TODO rows from TODO.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.
-                    </p>
                     <ul>
                         <li>Parquet</li>
                         <li>CSV</li>
                     </ul>
+                    <p>Size of data that was analyzed: 
+
+                        <b>Sentiment Analysis Model</b>
+                        <ul>
+                        <li>Using about 100,000 unique songs from the dataset</li>
+                        <li>Using Google Colab with GPU</li>
+                        <li>Generated vectors are 768 dimensions, shared as a numpy array (objects are pickled). The generate data is roughly 700 mb for each LM (BERT & GPT-2). Following are the public google drive links for the same:</li>
+                        <li>https://drive.google.com/file/d/1-2M9CIkX0MtPflfnG9CQQvU0nppyt6Xq # part00 - BERT</li>
+                        <li>https://drive.google.com/open?id=1VvPbasE3BbMwUg-pHz8eaaicQK0YZOeP # part00 - GPT-2</li>
+                        </ul>
+
+                        TODO! Due to the extreme size of each of the .csv files, we chose to analyze one .csv file (approximately TODO rows from TODO.csv) so as to not overload our computers. We tried using different file formats, such as Parquet, for efficiently visualizing the entire .csv files, although this was leading to an extremely large run time for the visualizations as well.
+                    </p>
+
                     <b>Packages Used</b>
                     <ul>
                         <li>sklearn (for the recommender system)</li>
