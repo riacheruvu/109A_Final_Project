@@ -7,16 +7,25 @@
                     <h3 class="section-subheading text-muted">Recommender System</h3>
                 </div>
 
-                <p>Our baseline model was a NearestNeighbors model (that utilizes the cosine similarity metric) NearestNeighbors(metric = 'cosine', algorithm = 'brute') from sklearn on the scaled dataset to output the song recommendations.</p>
-                <pre class="prettyprint">class Voila {
-                public:
-                  // Voila
-                  static const string VOILA = "Voila";
-
-                  // will not interfere with embedded <a href="#voila2">tags</a>.
-                }</pre>
-
-                <code>Some results!! TODO</code>
+                <p>Our baseline model was a NearestNeighbors algorithm from sklearn that is trained on the entire dataset and utilizes the cosine similarity metric. As we are deploying the model on sparse input, we used the brute-force search algorithm to compute the nearest neighbors, per the documentation. </p>
+                <pre class="prettyprint">
+                #We utilize n_neighbors = 5 for default queries with this model
+                model_knn = NearestNeighbors(metric = 'cosine', algorithm = 'brute')
+                model_knn.fit(pivoted)
+                </pre>
+        <b>Input playlist (songs delineated by semicolons): Standing Next to Me - Live; Pony; You Were Right</b>
+        <code>
+        ['I Will Wait',
+         'Lover Of The Light',
+         'Set Fire to the Rain',
+         'Hello',
+         'Let Her Go',
+         'Just Give Me a Reason',
+         'Thinking Out Loud',
+         'Riptide',
+         'Stitches',
+         ...
+        </code>
 
                 <div class="col-lg-12 text-center">
                     <h2 class="section-heading">Improvements on the Baseline Model</h2>
@@ -48,8 +57,9 @@
                 </p>
 
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-subheading text-muted">Metrics - evaluating our models - TODO!</h3>
+                    <h3 class="section-subheading text-muted">Metrics - evaluating our models</h3>
                 </div>
+                <p>Because we are primarily interested in our ability to use our models to retrieve related tracks, we will look at R-precision of our models. Followinf the RecSys challenge (https://recsys- challenge.spotify.com/rules), R-precision is the number of retrieved relevant tracks divided by the number of known relevant tracks. With a perfect performance the R-precision of our model would approach 1.0 and we will evaluate our models accordingly.</p>
             </div>
 
         </div>
