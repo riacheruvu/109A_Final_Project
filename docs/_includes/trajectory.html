@@ -21,7 +21,7 @@
                                 </div>
                                 <div class="timeline-body">
                                     <p class="text-muted">We initially tried to add genre as a feature included in our dataset, and retrieve these labels using Spotipy's API.
-                                    We found that Spotify's API makes the process of obtaining genre labels complicated, since we needed to use the artists' genre labels, since the genre labels for a particular track/song are almost always empty. We were able to retrieve the genre labels and classify certain sub-categories of genres under umbrella categories (e.g. Classical and Soundtrack). We ran into issues when we identified numerous sub-genres that could be grouped into multiple different categories - for example, should "Pop Rock" be grouped into the Pop or Rock genre? Furthermore, the song produced by an artists may not have the same genre as the genre most associated with the artist, so we discarded this feature and chose to rely on the audio features instead as our foundation.</p>
+                                    We found that Spotify's API makes the process of obtaining genre labels complicated, since we needed to use the artists' genre labels, since the genre labels for a particular track/song are almost always empty. We were able to retrieve the genre labels and classify certain sub-categories of genres under umbrella categories (e.g. Classical and Soundtrack). We ran into issues when we identified numerous sub-genres that could be grouped into multiple different categories - for example, should "Pop Rock" be grouped into the Pop or Rock genre? Furthermore, the song produced by an artists may not have the same genre as the genre most associated with the artist from the API, so we discarded this feature and chose to rely on the audio features instead as our foundation.</p>
                                 </div>
                             </div>
                         </li>
@@ -84,9 +84,9 @@
 
                         - What is defined as a relevant track? Does this mean tracks that have a high cosine similarity - if so, what is the cut-off value?
                         - The same song can be present in multiple playlists, so we cannot expect R_precision to be calculated for a particular playlist at a time and averaged across all playlists.
-                        - - Just because the songs that are recommended by the system are not in the playlist database does not mean that the user will not be open to listening to these songs if they match the user's preferences. In other words, define the "relevancy" of a track, which is not nessarily associated with "relatedness" of a track?Considering such questions in relation to human-centered design of a system is the core motivation for this project. An accurate way to validate the recommendations would be to utilize an adaptive experimental study design, such a factorial design in cases where the response variable is quantitative (e.g. number of likes) or stratified analysis in cases where the response variable is qualitiative (e.g. did the user add this track to the playlist or not?).
+                        - - Just because the songs that are recommended by the system are not in the playlist database does not mean that the user will not be open to listening to these songs if they match the user's preferences. In other words, define the "relevancy" of a track, which is not nessarily associated with "relatedness" of a track? Considering such questions in relation to human-centered design of a system is the core motivation for this project. An accurate way to validate the recommendations would be to utilize an adaptive experimental study design, such a factorial design in cases where the response variable is quantitative (e.g. number of likes) or stratified analysis in cases where the response variable is qualitiative (e.g. did the user add this track to the playlist or not?).
 
-                        Due to time constraints, we were not able to address the further, so we moved on with the other parts of the project.
+                        Due to time constraints, we were not able to address the use of R-precision, so we moved on with the other parts of the project.
 
                     </p>
                                 </div>
@@ -145,16 +145,17 @@
                 </div>
 
 
-            <b><i>We met our goal of building a human-centered system for automatic playlist generation targeted at providing an intuitive system for the cold start problem, integrating unsupervised learning, sentiment analysis, and traditional recommender system solutions.</i></b>
-            <p>Our models seem to do a good job of recommending tracks with similar audio features to the initial tracks. Training our models on larger datasets might lead to more recommendations being part of the playlist database, but we also considered that users might be more open to tracks that aren't necessarily part of the dataset we use. We incorporate this into our pipeline, by letting the user override our initial hypotheses about the users' preferences, forming a <b>feedback loop</b></p>.
+            <b>We met our goal of building a human-centered system for automatic playlist generation targeted at providing an intuitive system for the cold start problem, integrating unsupervised learning, sentiment analysis, and traditional recommender system solutions.</b>
+
+            <p>Our models seem to do a good job of recommending tracks with similar audio features to the initial tracks. Training our models on larger datasets might lead to more recommendations matching similar tracks part of the playlists that contain the initial tracks, but we also considered that users might be more open to tracks that aren't necessarily part of the playlists in the dataset we use. We incorporate user control into our pipeline by letting the user override our initial hypotheses about the users' preferences, forming a <b>feedback loop</b>.</p>
 
             <p>Our results demonstrate that musical sensabilities are challenging to determine, and are often a combination of multiple different features.
 
-            In our clustering analysis, we only considered five features, but perhaps using more features would lead to a more personalizable playlist that matches the users' preferences.</p>
+            In our clustering analysis, we only considered five features, but perhaps using more features would lead to a more personalizable playlist that better matches the users' preferences.</p>
 
-            <p>   Through the constructed UI, it is possible to deploy such a system directly for pilot testing. For example, we could utilize an adaptive experimental study design, such a factorial design in cases where the response variable is quantitative (e.g. number of likes) or stratified analysis in cases where the response variable is qualitiative (e.g. did the user add this track to the playlist or not?) in order to best identify if our recommendations match users' preferences.</p>
+            <p>   Through the constructed UI, it is possible to deploy such a system directly for pilot testing. For example, as mentioned in the project trajectory section, we could utilize an adaptive experimental study design, such a factorial design in cases where the response variable is quantitative (e.g. number of likes) or stratified analysis in cases where the response variable is qualitiative (e.g. did the user add this track to the playlist or not?) in order to best identify if our recommendations match users' preferences.</p>
 
-            <b><p>We hope the impact of this model is to contribute to the literature by emphasizing the need for user control as part of the end-to-end music recommendation pipeline, and integrating various sub-disciplines (e.g. unsupervised learnign and sentiment analysis) to come up with an efficient recommendation system.</p></b>
+            <b><p>We hope the impact of this model is to contribute to the literature by emphasizing the need for user control as part of the end-to-end music recommendation pipeline, and integrating various sub-disciplines (e.g. unsupervised learning and sentiment analysis) to create an efficient recommendation system.</p></b>
 
 
         </div>

@@ -17,13 +17,11 @@ people:
 - name: Sunil Chomal
   pic: 2
   position: Master's Student in Data Science
-  
+
 - name: Ria Cheruvu
   pic: 3
   position: Master's Student in Data Science
-  social:
-    - title: github
-      url: https://github.com/riacheruvu
+
 
 # Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
 #social:
